@@ -1,5 +1,7 @@
 FROM rhel7:latest
 
+USER root
+
 MAINTAINER Shah_Zobair
 
 ENV NGINX_VERSION 1.9.2-1.el7.ngx

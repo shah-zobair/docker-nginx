@@ -17,7 +17,7 @@ RUN curl -sO http://nginx.org/keys/nginx_signing.key && \
 RUN echo "Hello World" > /usr/share/nginx/html/index.html && \
     mkdir -p /usr/share/nginx/html/test && echo "Hello World Test" > /usr/share/nginx/html/test/index.html
 
-ADD conf/ /etc/nginx/
+ADD nginx.conf /etc/nginx/
 
 # forward request and error logs to docker log collector
 #RUN chmod -R 777 /var/log/nginx /var/cache/nginx/

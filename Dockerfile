@@ -9,12 +9,12 @@ ADD nginx.repo /etc/yum.repos.d/nginx.repo
 RUN curl -sO http://nginx.org/keys/nginx_signing.key && \
     rpm --import ./nginx_signing.key && \
     yum install -y nginx-${NGINX_VERSION} && \
-    chmod -R 777 /var/log/nginx /var/cache/nginx/ && \
-    chmod 644 /etc/nginx/* && \
     yum clean all && \
     rm -f ./nginx_signing.key
 
 # forward request and error logs to docker log collector
+RUN chmod -R 777 /var/log/nginx /var/cache/nginx/
+RUN chmod 644 /etc/nginx/*
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
 

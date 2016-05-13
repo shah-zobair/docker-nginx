@@ -1,6 +1,6 @@
 FROM rhel7:latest
 
-USER root
+#USER root
 
 MAINTAINER Shah_Zobair
 

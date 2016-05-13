@@ -20,7 +20,8 @@ RUN echo "Hello World" > /usr/share/nginx/html/index.html && \
 ADD nginx.conf /etc/nginx/
 
 # forward request and error logs to docker log collector
-#RUN chmod -R 777 /var/log/nginx /var/cache/nginx/
+RUN mkdir /var/cache/nginx
+RUN chmod -R 777 /var/log/nginx/ /var/cache/nginx/ /var/run/
 RUN chmod 644 /etc/nginx/*
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
